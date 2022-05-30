@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 
-function Properties({listProperties, setRecentUpdatedProperty}) {
+function Properties({listProperties, setAllProperties, setRecentUpdatedProperty}) {
 
     const [ showEditForm, toggleEditForm ] = useState(false)
     const [ curId, setCurId] = useState(null);
@@ -37,6 +37,28 @@ function Properties({listProperties, setRecentUpdatedProperty}) {
       }
 
 
+      const handlePropertyDelete = (propertyToDelete)=> {
+        console.log("Delete: ", propertyToDelete)
+      const id = propertyToDelete.id
+        // DELETE
+        fetch( `/properties/${id}` , 
+        
+        {method: "DELETE"})
+        .then( ()=>{
+            let filterResult = listProperties.filter((eachProperty)=>{
+                if (eachProperty.id != propertyToDelete.id){
+                    return eachProperty 
+                }
+
+            })
+            setAllProperties([...filterResult])
+            console.log([...filterResult])
+          })   
+        } 
+        
+
+ 
+
 
     const propertiesToList = listProperties.map((property) =>
         <li className="cards__item" key={property.id.toString()}>
@@ -63,6 +85,9 @@ function Properties({listProperties, setRecentUpdatedProperty}) {
                            setCurId(property.id)
                            toggleEditForm(!showEditForm) 
                         } }>EDIT</button>
+                        <br></br>
+                         <button className="bi bi-trash" onClick={ (e)=> {
+                            handlePropertyDelete(property)} } >Delete</button>
                 </div>
               
             </div>
@@ -72,7 +97,7 @@ function Properties({listProperties, setRecentUpdatedProperty}) {
     );
 
 
-
+ 
   
    
 
@@ -139,10 +164,7 @@ function Properties({listProperties, setRecentUpdatedProperty}) {
         
     }
   }
+
   
- 
-
-
-
-export default Properties;
+ export default Properties;
 

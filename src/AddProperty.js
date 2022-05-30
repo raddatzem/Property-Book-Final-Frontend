@@ -66,8 +66,9 @@ useEffect( ()=>{
 
   return (
     <form onSubmit={handleSubmit} >
+      
       <h3>Add New Property</h3>
-
+    
       <label htmlFor="name">Name    </label>
       <input className='form-card' type="text" id="name" name="name" value={name} onChange={handleName}/>
         <br></br><br></br>
@@ -87,13 +88,10 @@ useEffect( ()=>{
         })
         }
       </select>
-        {/* <label htmlFor="manager">Property Manager   </label>
-      <input className='form-card' type="text" id="manager" name="manager" onChange={handleManager}/> */}
-        <br></br><br></br>
-      <button className='button' type="submit">Add Property</button>
-      <br></br>
-     
-      </form>
+        <br></br>
+        <br></br>
+      <button className="button-81" role="button" type="submit" >Add Property</button>
+    </form>
   )
 }
 
