@@ -10,9 +10,9 @@ function Navbar({currentUser}){
         return(
             <div>
                <nav className="NavbarItems">
-               <h1 className="navbar-logo">Property Book</h1>
-               <img className='icon' src="https://www.freeiconspng.com/uploads/house-icon-png-white-32.png"></img>
-                
+               <h1 className="navbar-logo">Property Book</h1> &nbsp;&nbsp;&nbsp;
+               <img className='icon' src="https://cdn0.iconfinder.com/data/icons/school-and-learning-1/24/school-library-book-house-home-read-learn-learning-512.png"></img>
+               &nbsp;&nbsp;
                 <Link className='nav-links' to="/logout">Logout</Link>
                 
         
@@ -23,9 +23,9 @@ function Navbar({currentUser}){
         return(
             <div>
                <nav className="NavbarItems">
-               <h1 className="navbar-logo">Property Book</h1>
-               <img className='icon' src="https://www.freeiconspng.com/uploads/house-icon-png-white-32.png"></img>
-             
+               <h1 className="navbar-logo">Property Book</h1> &nbsp;&nbsp;&nbsp;
+               <img className='icon' src="https://cdn0.iconfinder.com/data/icons/school-and-learning-1/24/school-library-book-house-home-read-learn-learning-512.png" ></img>
+               &nbsp;&nbsp;
                <Link className='nav-links' to="/signup">Signup</Link>
                   
                 <Link className='nav-links' to="/login">Login</Link>

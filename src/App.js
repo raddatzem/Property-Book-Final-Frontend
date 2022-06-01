@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import './App.css';
 import Navbar from './NavBar/Navbar';
 import Signup from './Signup.js';
 import Login from './Login.js';
@@ -13,11 +12,11 @@ function App() {
 
 //state of logged in user
 const [currentUser, setCurrentUser ] =  useState(null);
-console.log(currentUser)
+
 
 //state of properties
 const [allProperties, setAllProperties] = useState([])
-console.log(allProperties)
+
 
   return (
     <div>

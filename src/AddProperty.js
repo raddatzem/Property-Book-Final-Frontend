@@ -1,9 +1,15 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
-
+import Properties from './Properties'
 
 
 function PropertyForm({addProperty, user}) {
+
+const [ showAddForm, toggleAddForm ] = useState(false)
+
+
+
+
 const [name, setName] = useState("")
 const [address, setAddress] = useState("")
 const [notes, setNotes] = useState("")
@@ -64,35 +70,88 @@ useEffect( ()=>{
 
 
 
-  return (
-    <form onSubmit={handleSubmit} >
-      
-      <h3>Add New Property</h3>
-    
-      <label htmlFor="name">Name    </label>
-      <input className='form-card' type="text" id="name" name="name" value={name} onChange={handleName}/>
-        <br></br><br></br>
-      <label htmlFor="address">Address</label>
-      <input className='form-card' type="text" id="address" name="address" onChange={handleAddress} />
-        <br></br><br></br>
-      <label htmlFor="notes">Notes    </label>
-      <input className='form-card' type="text" id="notes" name="notes" onChange={handleNotes} />
-       <br></br><br></br>
-      <label htmlFor="image">Image    </label>
-      <input className='form-card' type="text" id="image" name="image" onChange={handleImage}/>
-        <br></br><br></br>
-        <select onChange={handleManagerSelection} value={selectedManager}>
-        <option>Select Manager</option>
-        { manager.map( (manager)=>{
-            return(<option key={manager.id} value={manager.name}>{manager.name}</option>)
-        })
+
+  const addForm = () =>{
+    if (showAddForm){
+      return ( 
+   
+        <form id="login_form" className="form_class"   onSubmit={handleSubmit} >
+        
+          <label htmlFor="name">Name: &nbsp;</label>
+          <input className='form-card' type="text" id="name" name="name" value={name} onChange={handleName}/>
+
+            <br></br><br></br>
+
+          <label htmlFor="address">Address: &nbsp;</label>
+          <input className='form-card' type="text" id="address" name="address" onChange={handleAddress} />
+
+            <br></br><br></br>
+
+          <label htmlFor="notes">Notes: &nbsp; </label>
+          <input className='form-card' type="text" id="notes" name="notes" onChange={handleNotes} />
+
+           <br></br><br></br>
+
+          <label htmlFor="image">Image: &nbsp; </label>
+          <input className='form-card' type="text" id="image" name="image" onChange={handleImage}/>
+
+            <br></br><br></br>
+
+            <select onChange={handleManagerSelection} value={selectedManager}>
+            <option>Select Manager</option>
+            { manager.map( (manager)=>{
+                return(<option key={manager.id} value={manager.name}>{manager.name}</option>)
+            })
+            }
+            </select>
+
+            <br></br>
+            <br></br>
+
+          <button className="button-29" role="button" type="submit" >Add Property</button>
+        </form>
+      );
+
+
+        } else {
+            return null
         }
-      </select>
-        <br></br>
-        <br></br>
-      <button className="button-81" role="button" type="submit" >Add Property</button>
-    </form>
-  )
+    }  
+
+
+
+
+
+
+
+
+
+
+return (
+  <>
+    <br></br>
+    <button className="button-29"   onClick={ (e) => {
+                                    toggleAddForm(!showAddForm) 
+                                    } }> <span className="material-symbols-outlined">
+                                    add
+                                    </span>
+    </button>
+    <br></br>
+    <br></br>
+    {addForm()}
+
+
+    {/* <Properties manager={manager} handleManagerSelection={handleManagerSelection} selectedManager={selectedManager} /> */}
+  </>
+)
+
+
+
+  
+
+
+
+
 }
 
 export default PropertyForm

@@ -3,6 +3,29 @@ import React, {useState, useEffect} from 'react';
 
 function Properties({listProperties, setAllProperties, setRecentUpdatedProperty}) {
 
+//start manager edit logic
+const [manager, setManager] = useState([])
+const [selectedManager, setSelectedManager] = useState("")
+
+const handleManagerSelection =(e)=>{
+    setSelectedManager(e.target.value)
+  }
+
+
+
+
+//get managers
+useEffect( ()=>{
+    fetch ("/managers")
+    .then (res => res.json())
+    .then ( manager => {
+      setManager(manager)
+    })}, [] )
+
+
+
+
+
     const [ showEditForm, toggleEditForm ] = useState(false)
     const [ curId, setCurId] = useState(null);
     // userInfoBeingEdited, updateUserInfoBeingEdited
@@ -72,7 +95,11 @@ function Properties({listProperties, setAllProperties, setRecentUpdatedProperty}
                 <div className="card__title">{property.name}</div>
                     <p className="card-text">{property.address}</p>
                     <p className="card-text">{property.notes}</p>
+                    <br></br>
+                    <br></br>
                     <p className="card-text">Managed by:  <br></br>{property.manager.name}
+                    <br></br>
+                    <br></br>
                         <img 
                             src={property.manager.image}
                             alt={property.manager.name}
@@ -80,14 +107,26 @@ function Properties({listProperties, setAllProperties, setRecentUpdatedProperty}
                         />
                         <br></br>{property.manager.bio}
                     </p>
-       
-                       <button onClick={ (e) => {
+                    <br></br>
+                    
+                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+                       <button  
+                       
+                          onClick={ (e) => {
                            setCurId(property.id)
                            toggleEditForm(!showEditForm) 
-                        } }>EDIT</button>
+                        } }> <span className="material-symbols-outlined">
+                        edit
+                        </span></button>
+
                         <br></br>
-                         <button className="bi bi-trash" onClick={ (e)=> {
-                            handlePropertyDelete(property)} } >Delete</button>
+                         <button className="button-30"
+                         
+                           onClick={ (e)=> {
+                            handlePropertyDelete(property)} } > <span className="material-symbols-outlined">
+                            delete_forever
+                            </span></button>
                 </div>
               
             </div>
@@ -135,7 +174,21 @@ function Properties({listProperties, setAllProperties, setRecentUpdatedProperty}
                                     "image" : e.target.value
                                 })}/>
 
-                                <br></br><br></br>
+                                <br></br><br></br>  
+
+
+                                <select onChange={handleManagerSelection} value={selectedManager}>
+                                    <option>Select Manager</option>
+                                    { manager.map( (manager)=>{
+                                        return(<option key={manager.id} value={manager.name}>{manager.name}</option>)
+                                    })
+                                    }
+                                    </select>
+
+
+                                    <br></br><br></br>
+
+
 
                                 <button className='button' type="submit">Confirm Changes</button>
                     

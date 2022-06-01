@@ -2,7 +2,7 @@ import {useState, useEffect} from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import Properties from "./Properties";
 import PropertyForm from "./AddProperty";
-import Logout from "./Logout";
+
 
 
 
@@ -24,16 +24,12 @@ const addProperty = (newProperty) =>{
 
 // login -fetch all users
 useEffect( ()=>{
-  console.log("here")
+  
     fetch ("/userInSession")
     .then (res => res.json())
     .then ( userAlreadyLoggedIn => {
 
-        if (userAlreadyLoggedIn.error){
-            toast.error(`error:${userAlreadyLoggedIn.error}`)
-        } else {
-            toast(`You are logged in as ${userAlreadyLoggedIn.username}`)
-        }
+       
 
 
       setCurrentUser(userAlreadyLoggedIn)
@@ -41,7 +37,7 @@ useEffect( ()=>{
   
   
   
-  //Logic here is: If [currentUser, recentyUpdatedProperty] chnages, then it runs the code below.  
+  //Logic here is: If [currentUser, recentyUpdatedProperty] changes, then it runs the code below.  
   //This is nice because we wont have endless loops, fetching data over and over and over
   //It is also nice because we can force this code to execute just by changing "recentUpdatedProperty"
   useEffect( ()=>{
@@ -57,9 +53,6 @@ useEffect( ()=>{
 
 
 
-// //function to handle delete button
-
-
 
 
 
@@ -70,12 +63,12 @@ useEffect( ()=>{
 
 return(
     <>
-    <ToastContainer />
+    
         <PropertyForm addProperty={addProperty} user={currentUser} />
 
         <Properties listProperties={allProperties} setAllProperties={setAllProperties} setRecentUpdatekdProperty={setRecentUpdatedProperty}/>
 
-        
+       <ToastContainer />
     </>
 )
 

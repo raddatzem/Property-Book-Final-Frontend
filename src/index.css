@@ -24,6 +24,8 @@ body {
 
 .centered {
   text-align: center;
+  max-width: 500px;
+  margin: auto;
 }
 
 .cards {
@@ -72,8 +74,9 @@ body {
 }
 
 .manager__image {
-  height: 50%;
-  width: center;
+  max-width: 75%;
+  height: auto;
+  display: center;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -127,43 +130,120 @@ body {
   }
 }
 
-/* //////////////////// */
-/* start button css */
 
-.button-81 {
-  background-color: rgb(77, 64, 197);
-  border: 0 solid #e2e8f0;
-  border-radius: 1.5rem;
+
+/* //////////////////// */
+/* Add Property, Login, & Submit Buttons */
+
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5c54ff  0, #5c54ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #fff;
   cursor: pointer;
-  display: inline-block;
-  font-family: "Basier circle",-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-  font-size: 1.1rem;
-  font-weight: 600;
+  display: inline-flex;
+  font-family: 'Roboto','Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 48px;
+  justify-content: center;
   line-height: 1;
-  padding: 1rem 1.6rem;
-  text-align: center;
-  text-decoration: none #0d172a solid;
-  text-decoration-thickness: auto;
-  transition: all .1s cubic-bezier(.4, 0, .2, 1);
-  box-shadow: 0px 1px 2px rgba(166, 175, 195, 0.25);
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
 }
 
-.button-81:hover {
-  background-color: rgb(127, 122, 240);
-  color: #fff;
+.button-29:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
 }
 
-@media (min-width: 768px) {
-  .button-81 {
-    font-size: 1.125rem;
-    padding: 1rem 2rem;
-  }
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
 }
+
+.button-29:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+
+
+
+/* Delete & Edit Button */
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 350,
+  'GRAD' 0,
+  'opsz' 50
+}
+
+
+/* <!-- HTML !-->
+<button class="button-30" role="button">Button 30</button> */
+
+/* CSS */
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
 
 
 
@@ -194,6 +274,8 @@ main {
   background-size: cover;
 }
 .form_class {
+  max-width: 500px;
+  margin: auto;
   width: 500px;
   padding: 40px;
   border-radius: 8px;
@@ -201,63 +283,4 @@ main {
   font-family: 'system-ui';
   box-shadow: 5px 5px 10px rgb(0,0,0,0.3);
 }
-.form_div {
-  text-transform: uppercase;
-}
-.form_div > label {
-  letter-spacing: 3px;
-  font-size: 1rem;
-}
-.info_div {
-  text-align: center;
-  margin-top: 20px;
-}
-.info_div {
-  letter-spacing: 1px;
-}
-.field_class {
-  width: 100%;
-  border-radius: 6px;
-  border-style: solid;
-  border-width: 1px;
-  padding: 5px 0px;
-  text-indent: 6px;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  font-family: 'system-ui';
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-}
-.submit_class {
-  border-style: none;
-  border-radius: 5px;
-  background-color: #FFE6D4;
-  padding: 8px 20px;
-  font-family: 'system-ui';
-  text-transform: uppercase;
-  letter-spacing: .8px;
-  display: block;
-  margin: auto;
-  margin-top: 10px;
-  box-shadow: 2px 2px 5px rgb(0,0,0,0.2);
-  cursor: pointer;
-}
-footer {
-  height: 10vh;
-  background-color: black;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: -5px -5px 10px rgb(0,0,0,0.3);
-}
-footer > p {
-  text-align: center;
-  font-family: 'system-ui';
-  letter-spacing: 3px;
-}
-footer > p > a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
+
